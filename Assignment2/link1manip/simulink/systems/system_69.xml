@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1537, 817]</P>
+  <P Name="ScreenColor">white</P>
+  <P Name="PaperType">usletter</P>
+  <P Name="ZoomFactor">80</P>
+  <Block BlockType="Inport" Name="t" SID="70">
+    <P Name="Position">[40, 103, 70, 117]</P>
+    <P Name="ZOrder">-1</P>
+    <P Name="ShowName">off</P>
+    <P Name="IconDisplay">Port number and signal name</P>
+  </Block>
+  <Block BlockType="EnablePort" Name="Enable" SID="71">
+    <PortCounts/>
+    <P Name="Position">[235, 20, 255, 40]</P>
+    <P Name="ZOrder">-2</P>
+  </Block>
+  <Block BlockType="Fcn" Name="Fcn" SID="72">
+    <P Name="Position">[145, 94, 355, 126]</P>
+    <P Name="ZOrder">-3</P>
+    <P Name="Expr">pi/(4*delta^2)*u[1]^3-pi/(16*delta^3)*u[1]^4</P>
+  </Block>
+  <Block BlockType="Outport" Name="Out1" SID="73">
+    <P Name="Position">[425, 103, 455, 117]</P>
+    <P Name="ZOrder">-4</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">70#out:1</P>
+    <P Name="Dst">72#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">72#out:1</P>
+    <P Name="Dst">73#in:1</P>
+  </Line>
+</System>

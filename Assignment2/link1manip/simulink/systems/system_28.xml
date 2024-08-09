@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -8, 1921, 1033]</P>
+  <P Name="ScreenColor">white</P>
+  <P Name="PaperType">A4</P>
+  <P Name="ZoomFactor">110</P>
+  <Block BlockType="Inport" Name="Error" SID="79">
+    <P Name="Position">[645, 318, 675, 332]</P>
+    <P Name="ZOrder">7</P>
+  </Block>
+  <Block BlockType="Sum" Name="Add" SID="80">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[1030, 309, 1060, 341]</P>
+    <P Name="ZOrder">6</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="Inputs">+++</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="81">
+    <P Name="Position">[715, 310, 745, 340]</P>
+    <P Name="ZOrder">5</P>
+    <P Name="Gain">Kp</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain1" SID="82">
+    <P Name="Position">[845, 310, 875, 340]</P>
+    <P Name="ZOrder">8</P>
+    <P Name="Gain">1/Ti</P>
+  </Block>
+  <Block BlockType="Integrator" Name="Integrator" SID="83">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[915, 310, 960, 340]</P>
+    <P Name="ZOrder">4</P>
+  </Block>
+  <Block BlockType="TransferFcn" Name="Transfer Fcn" SID="84">
+    <P Name="Position">[845, 379, 960, 421]</P>
+    <P Name="ZOrder">3</P>
+    <P Name="Numerator">[Td 0]</P>
+    <P Name="Denominator">[Td*eta 1]</P>
+  </Block>
+  <Block BlockType="Outport" Name="Out1" SID="85">
+    <P Name="Position">[1095, 318, 1125, 332]</P>
+    <P Name="ZOrder">2</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">79#out:1</P>
+    <P Name="Dst">81#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">80#out:1</P>
+    <P Name="Dst">85#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">84#out:1</P>
+    <P Name="Points">[33, 0; 0, -65]</P>
+    <P Name="Dst">80#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">83#out:1</P>
+    <P Name="Dst">80#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">9</P>
+    <P Name="Src">81#out:1</P>
+    <P Name="Points">[50, 0]</P>
+    <Branch>
+      <P Name="ZOrder">8</P>
+      <P Name="Points">[0, 75]</P>
+      <P Name="Dst">84#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">7</P>
+      <P Name="Points">[0, -39; 198, 0; 0, 29]</P>
+      <P Name="Dst">80#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">6</P>
+      <P Name="Dst">82#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">10</P>
+    <P Name="Src">82#out:1</P>
+    <P Name="Dst">83#in:1</P>
+  </Line>
+</System>

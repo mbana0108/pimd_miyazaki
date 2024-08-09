@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -8, 1921, 1033]</P>
+  <P Name="ScreenColor">white</P>
+  <P Name="PaperType">A4</P>
+  <P Name="ZoomFactor">129</P>
+  <Block BlockType="Inport" Name="Torque1" SID="98">
+    <P Name="Position">[205, 118, 235, 132]</P>
+    <P Name="ZOrder">7</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">Geared Torque</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Sum" Name="Add1" SID="99">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[285, 117, 315, 148]</P>
+    <P Name="ZOrder">8</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="Inputs">+-</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">ia</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="100">
+    <P Name="Position">[365, 112, 495, 158]</P>
+    <P Name="ZOrder">11</P>
+    <P Name="Gain">1/(m1*r1^2+Izzg1)</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain1" SID="101">
+    <P Name="Position">[465, 165, 495, 195]</P>
+    <P Name="ZOrder">12</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="NameLocation">top</P>
+    <P Name="Gain">c1</P>
+  </Block>
+  <Block BlockType="Integrator" Name="Integrator" SID="102">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[635, 120, 665, 150]</P>
+    <P Name="ZOrder">9</P>
+  </Block>
+  <Block BlockType="Integrator" Name="Integrator1" SID="103">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[545, 120, 575, 150]</P>
+    <P Name="ZOrder">10</P>
+  </Block>
+  <Block BlockType="Outport" Name="Theta1" SID="104">
+    <P Name="Position">[710, 128, 740, 142]</P>
+    <P Name="ZOrder">6</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">101#out:1</P>
+    <P Name="Points">[-190, 0]</P>
+    <P Name="Dst">99#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">103#out:1</P>
+    <P Name="Points">[14, 0]</P>
+    <Branch>
+      <P Name="ZOrder">4</P>
+      <P Name="Points">[0, 45]</P>
+      <P Name="Dst">101#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">3</P>
+      <P Name="Dst">102#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">102#out:1</P>
+    <P Name="Dst">104#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">100#out:1</P>
+    <P Name="Dst">103#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">98#out:1</P>
+    <P Name="Dst">99#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">ia</P>
+    <P Name="ZOrder">9</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">99#out:1</P>
+    <P Name="Dst">100#in:1</P>
+  </Line>
+</System>

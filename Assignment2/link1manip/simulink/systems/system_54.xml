@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -8, 1921, 1033]</P>
+  <P Name="ScreenColor">white</P>
+  <P Name="PaperType">A4</P>
+  <Block BlockType="Inport" Name="t" SID="105">
+    <P Name="Position">[790, 318, 820, 332]</P>
+    <P Name="ZOrder">4</P>
+    <P Name="ShowName">off</P>
+    <P Name="IconDisplay">Port number and signal name</P>
+  </Block>
+  <Block BlockType="EnablePort" Name="Enable" SID="106">
+    <PortCounts/>
+    <P Name="Position">[985, 235, 1005, 255]</P>
+    <P Name="ZOrder">3</P>
+  </Block>
+  <Block BlockType="Fcn" Name="Fcn" SID="107">
+    <P Name="Position">[890, 311, 1260, 339]</P>
+    <P Name="ZOrder">2</P>
+    <P Name="Expr">2*pi-delta*pi+pi*(u[1]-2)-pi/(4*delta^2)*(u[1]-2)^3+pi/(16*delta^3)*(u[1]-2)^4</P>
+  </Block>
+  <Block BlockType="Outport" Name="Out1" SID="108">
+    <P Name="Position">[1295, 318, 1325, 332]</P>
+    <P Name="ZOrder">1</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">105#out:1</P>
+    <P Name="Dst">107#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">107#out:1</P>
+    <P Name="Dst">108#in:1</P>
+  </Line>
+</System>

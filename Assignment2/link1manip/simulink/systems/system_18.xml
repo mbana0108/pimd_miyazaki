@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -8, 1921, 1033]</P>
+  <P Name="ScreenColor">white</P>
+  <P Name="PaperType">A4</P>
+  <P Name="ZoomFactor">129</P>
+  <Block BlockType="Inport" Name="Voltage" SID="86">
+    <P Name="Position">[615, 233, 645, 257]</P>
+    <P Name="ZOrder">12</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">Voltage</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="theta" SID="87">
+    <P Name="Position">[615, 293, 645, 307]</P>
+    <P Name="ZOrder">11</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Sum" Name="Add" SID="88">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[1120, 228, 1135, 402]</P>
+    <P Name="ZOrder">10</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="Inputs">+--</P>
+  </Block>
+  <Block BlockType="Sum" Name="Add1" SID="89">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[840, 237, 870, 268]</P>
+    <P Name="ZOrder">9</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="Inputs">+-</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">ia</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="90">
+    <P Name="Position">[915, 240, 945, 270]</P>
+    <P Name="ZOrder">8</P>
+    <P Name="Gain">Kt</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">ideal_torque</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Gain" Name="Gain1" SID="91">
+    <P Name="Position">[1050, 300, 1080, 330]</P>
+    <P Name="ZOrder">15</P>
+    <P Name="Gain">J</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain2" SID="92">
+    <P Name="Position">[995, 360, 1025, 390]</P>
+    <P Name="ZOrder">16</P>
+    <P Name="Gain">Bm</P>
+  </Block>
+  <Block BlockType="TransferFcn" Name="Transfer Fcn1" SID="93">
+    <P Name="Position">[710, 219, 810, 271]</P>
+    <P Name="ZOrder">14</P>
+    <P Name="Numerator">[1 ]</P>
+    <P Name="Denominator">[La Ra]</P>
+  </Block>
+  <Block BlockType="TransferFcn" Name="Transfer Fcn2" SID="94">
+    <P Name="Position">[710, 279, 810, 331]</P>
+    <P Name="ZOrder">13</P>
+    <P Name="Numerator">[Ke 0]</P>
+    <P Name="Denominator">[La Ra]</P>
+  </Block>
+  <Block BlockType="TransferFcn" Name="Transfer Fcn3" SID="95">
+    <P Name="Position">[710, 347, 795, 383]</P>
+    <P Name="ZOrder">7</P>
+    <P Name="Numerator">[1 0]</P>
+    <P Name="Denominator">[0.01 1]</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">theta&apos;</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="TransferFcn" Name="Transfer Fcn4" SID="96">
+    <P Name="Position">[920, 297, 1005, 333]</P>
+    <P Name="ZOrder">6</P>
+    <P Name="Numerator">[1 0]</P>
+    <P Name="Denominator">[0.01 1]</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">theta&apos;&apos;</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Outport" Name="Torque" SID="97">
+    <P Name="Position">[1180, 308, 1210, 322]</P>
+    <P Name="ZOrder">5</P>
+  </Block>
+  <Line>
+    <P Name="Name">theta&apos;</P>
+    <P Name="ZOrder">18</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">95#out:1</P>
+    <P Name="Points">[25, 0]</P>
+    <Branch>
+      <P Name="ZOrder">17</P>
+      <P Name="Points">[0, 10]</P>
+      <P Name="Dst">92#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">16</P>
+      <P Name="Points">[0, -50]</P>
+      <P Name="Dst">96#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">19</P>
+    <P Name="Src">91#out:1</P>
+    <P Name="Dst">88#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">20</P>
+    <P Name="Src">93#out:1</P>
+    <P Name="Dst">89#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">21</P>
+    <P Name="Src">92#out:1</P>
+    <P Name="Dst">88#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">22</P>
+    <P Name="Src">86#out:1</P>
+    <P Name="Dst">93#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">23</P>
+    <P Name="Src">88#out:1</P>
+    <P Name="Dst">97#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">theta&apos;&apos;</P>
+    <P Name="ZOrder">24</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">96#out:1</P>
+    <P Name="Dst">91#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">25</P>
+    <P Name="Src">94#out:1</P>
+    <P Name="Points">[10, 0]</P>
+    <P Name="Dst">89#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">ideal_torque</P>
+    <P Name="ZOrder">26</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">90#out:1</P>
+    <P Name="Dst">88#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">ia</P>
+    <P Name="ZOrder">27</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">89#out:1</P>
+    <P Name="Dst">90#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">30</P>
+    <P Name="Src">87#out:1</P>
+    <P Name="Points">[30, 0; 0, 5]</P>
+    <Branch>
+      <P Name="ZOrder">29</P>
+      <P Name="Dst">94#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">28</P>
+      <P Name="Points">[0, 60]</P>
+      <P Name="Dst">95#in:1</P>
+    </Branch>
+  </Line>
+</System>

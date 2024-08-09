@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -8, 1921, 1033]</P>
+  <P Name="Open">on</P>
+  <P Name="ZoomFactor">92</P>
+  <P Name="ReportName">simulink-default.rpt</P>
+  <P Name="SIDHighWatermark">108</P>
+  <Block BlockType="Clock" Name="Clock" SID="1">
+    <P Name="Position">[15, 115, 35, 135]</P>
+    <P Name="ZOrder">-1</P>
+    <P Name="Decimation">1</P>
+  </Block>
+  <Block BlockType="Clock" Name="Clock1" SID="2">
+    <P Name="Position">[725, 535, 745, 555]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="Decimation">1</P>
+  </Block>
+  <Block BlockType="From" Name="From" SID="3">
+    <P Name="Position">[685, 296, 725, 324]</P>
+    <P Name="ZOrder">-3</P>
+    <P Name="CloseFcn">tagdialog Close</P>
+    <P Name="GotoTag">SV</P>
+    <P Name="TagVisibility">global</P>
+  </Block>
+  <Block BlockType="From" Name="From1" SID="4">
+    <P Name="Position">[685, 336, 725, 364]</P>
+    <P Name="ZOrder">-4</P>
+    <P Name="CloseFcn">tagdialog Close</P>
+    <P Name="GotoTag">theta</P>
+    <P Name="TagVisibility">global</P>
+  </Block>
+  <Block BlockType="From" Name="From2" SID="5">
+    <P Name="Position">[635, 377, 725, 403]</P>
+    <P Name="ZOrder">-5</P>
+    <P Name="CloseFcn">tagdialog Close</P>
+    <P Name="GotoTag">limited_voltage</P>
+    <P Name="TagVisibility">global</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">limited voltage</P>
+        <P Name="PropagatedSignals">Voltage</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="From" Name="From3" SID="6">
+    <P Name="Position">[635, 417, 725, 443]</P>
+    <P Name="ZOrder">-6</P>
+    <P Name="CloseFcn">tagdialog Close</P>
+    <P Name="GotoTag">geared_torque</P>
+    <P Name="TagVisibility">global</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">geared_torque</P>
+        <P Name="PropagatedSignals">Geared Torque</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="From" Name="From4" SID="7">
+    <P Name="Position">[715, 481, 755, 509]</P>
+    <P Name="ZOrder">-7</P>
+    <P Name="CloseFcn">tagdialog Close</P>
+    <P Name="GotoTag">theta</P>
+    <P Name="TagVisibility">global</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="8">
+    <P Name="Position">[610, 125, 640, 155]</P>
+    <P Name="ZOrder">-8</P>
+    <P Name="BackgroundColor">yellow</P>
+    <P Name="Gain">N</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain1" SID="9">
+    <P Name="Position">[440, 175, 470, 205]</P>
+    <P Name="ZOrder">-9</P>
+    <P Name="BlockRotation">270</P>
+    <P Name="BackgroundColor">yellow</P>
+    <P Name="NameLocation">right</P>
+    <P Name="Gain">N</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain2" SID="10">
+    <P Name="Position">[655, 125, 685, 155]</P>
+    <P Name="ZOrder">-10</P>
+    <P Name="BackgroundColor">yellow</P>
+    <P Name="Gain">E</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">Geared Torque</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Goto" Name="Goto" SID="11">
+    <P Name="Position">[245, 35, 285, 65]</P>
+    <P Name="ZOrder">-11</P>
+    <P Name="GotoTag">SV</P>
+    <P Name="TagVisibility">global</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto1" SID="12">
+    <P Name="Position">[495, 35, 575, 65]</P>
+    <P Name="ZOrder">-12</P>
+    <P Name="GotoTag">limited_voltage</P>
+    <P Name="TagVisibility">global</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto4" SID="13">
+    <P Name="Position">[865, 200, 925, 230]</P>
+    <P Name="ZOrder">-13</P>
+    <P Name="GotoTag">theta</P>
+    <P Name="TagVisibility">global</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto5" SID="14">
+    <P Name="Position">[840, 61, 925, 89]</P>
+    <P Name="ZOrder">-14</P>
+    <P Name="GotoTag">geared_torque</P>
+    <P Name="TagVisibility">global</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="Mecha" SID="15">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[740, 93, 805, 157]</P>
+    <P Name="ZOrder">-15</P>
+    <P Name="BackgroundColor">orange</P>
+    <System Ref="system_15"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="Motor" SID="18">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[490, 110, 565, 170]</P>
+    <P Name="ZOrder">-16</P>
+    <P Name="BackgroundColor">lightBlue</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">Torque</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_18"/>
+  </Block>
+  <Block BlockType="Mux" Name="Mux1" SID="27">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[775, 301, 780, 339]</P>
+    <P Name="ZOrder">-17</P>
+    <P Name="ShowName">off</P>
+    <P Name="Inputs">2</P>
+    <P Name="DisplayOption">bar</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">SV-PV</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="SubSystem" Name="PID" SID="28">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[270, 104, 370, 146]</P>
+    <P Name="ZOrder">-18</P>
+    <P Name="BackgroundColor">green</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">Voltage</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_28"/>
+  </Block>
+  <Block BlockType="Saturate" Name="Saturation" SID="35">
+    <P Name="Position">[415, 110, 445, 140]</P>
+    <P Name="ZOrder">-19</P>
+    <P Name="BackgroundColor">green</P>
+    <P Name="UpperLimit">20</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">Voltage</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Scope" Name="Scope" SID="36">
+    <PortCounts in="3"/>
+    <P Name="Position">[880, 312, 910, 348]</P>
+    <P Name="ZOrder">-20</P>
+    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true),extmgr.Configuration(&apos;Core&apos;,&apos;Source UI&apos;,true),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true,&apos;DataLogging&apos;,true,&apos;DataLoggingSaveFormat&apos;,&apos;StructureWithTime&apos;,&apos;DataLoggingDecimation&apos;,&apos;1&apos;,&apos;DataLoggingDecimateData&apos;,true),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;0&apos;,&apos;MaxYLimReal&apos;,&apos;8&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0&apos;,&apos;MaxYLimMag&apos;,&apos;10&apos;,&apos;LegendVisibility&apos;,&apos;off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,2,&apos;LineNames&apos;,{{&apos;SV-PV:1&apos;,&apos;SV-PV:2&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1),struct(&apos;MinYLimReal&apos;,&apos;-20&apos;,&apos;MaxYLimReal&apos;,&apos;30&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0&apos;,&apos;MaxYLimMag&apos;,&apos;10&apos;,&apos;LegendVisibility&apos;,&apos;off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,1,&apos;LineNames&apos;,{{&apos;limited voltage&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,2),struct(&apos;MinYLimReal&apos;,&apos;-15&apos;,&apos;MaxYLimReal&apos;,&apos;10&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0&apos;,&apos;MaxYLimMag&apos;,&apos;10&apos;,&apos;LegendVisibility&apos;,&apos;off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,1,&apos;LineNames&apos;,{{&apos;geared_torque&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,3)},&apos;DisplayPropertyDefaults&apos;,struct(&apos;MinYLimReal&apos;,&apos;0&apos;,&apos;MaxYLimReal&apos;,&apos;8&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0&apos;,&apos;MaxYLimMag&apos;,&apos;10&apos;,&apos;LegendVisibility&apos;,&apos;off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,0,&apos;LineNames&apos;,{{[]}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1),&apos;DisplayLayoutDimensions&apos;,[3 1],&apos;TimeRangeSamples&apos;,&apos;2.5&apos;,&apos;TimeRangeFrames&apos;,&apos;2.5&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true,&apos;OnceAtStop&apos;,false),extmgr.Configuration(&apos;Tools&apos;,&apos;Measurements&apos;,true,&apos;Version&apos;,&apos;2024a&apos;)),&apos;Version&apos;,&apos;2024a&apos;,&apos;Location&apos;,[1 76 1921 1031])</P>
+    <P Name="NumInputPorts">3</P>
+    <P Name="Floating">off</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum1" SID="37">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[225, 115, 245, 135]</P>
+    <P Name="ZOrder">-21</P>
+    <P Name="ShowName">off</P>
+    <P Name="Inputs">|+-</P>
+  </Block>
+  <Block BlockType="ToWorkspace" Name="To Workspace" SID="38">
+    <PortCounts in="1"/>
+    <P Name="Position">[825, 480, 885, 510]</P>
+    <P Name="ZOrder">-22</P>
+    <P Name="VariableName">theta</P>
+    <P Name="MaxDataPoints">inf</P>
+    <P Name="SampleTime">0.1</P>
+  </Block>
+  <Block BlockType="ToWorkspace" Name="To Workspace1" SID="39">
+    <PortCounts in="1"/>
+    <P Name="Position">[825, 530, 885, 560]</P>
+    <P Name="ZOrder">-23</P>
+    <P Name="VariableName">t</P>
+    <P Name="MaxDataPoints">inf</P>
+    <P Name="SampleTime">0.1</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="trajectory" SID="40">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[80, 104, 180, 146]</P>
+    <P Name="ZOrder">-24</P>
+    <P Name="BackgroundColor">magenta</P>
+    <System Ref="system_40"/>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">40#out:1</P>
+    <P Name="Points">[10, 0]</P>
+    <Branch>
+      <P Name="ZOrder">2</P>
+      <P Name="Dst">37#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">3</P>
+      <P Name="Points">[0, -75]</P>
+      <P Name="Dst">11#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">31</P>
+    <P Name="Src">37#out:1</P>
+    <P Name="Dst">28#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">30</P>
+    <P Name="Src">15#out:1</P>
+    <P Name="Points">[30, 0; 0, 90]</P>
+    <Branch>
+      <P Name="ZOrder">6</P>
+      <P Name="Points">[0, 45; -385, 0]</P>
+      <Branch>
+        <P Name="ZOrder">7</P>
+        <P Name="Points">[-220, 0]</P>
+        <P Name="Dst">37#in:2</P>
+      </Branch>
+      <Branch>
+        <P Name="ZOrder">8</P>
+        <P Name="Dst">9#in:1</P>
+      </Branch>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">9</P>
+      <P Name="Dst">13#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="Name">Voltage</P>
+    <P Name="FontSize">10</P>
+    <P Name="ZOrder">32</P>
+    <P Name="Labels">[1, 0]</P>
+    <P Name="Src">28#out:1</P>
+    <P Name="Dst">35#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">Torque</P>
+    <P Name="FontSize">10</P>
+    <P Name="ZOrder">35</P>
+    <P Name="Labels">[1, 0]</P>
+    <P Name="Src">18#out:1</P>
+    <P Name="Dst">8#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">12</P>
+    <P Name="Src">1#out:1</P>
+    <P Name="Dst">40#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">34</P>
+    <P Name="Src">9#out:1</P>
+    <P Name="Points">[0, -15]</P>
+    <P Name="Dst">18#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">14</P>
+    <P Name="Src">8#out:1</P>
+    <P Name="Dst">10#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">Geared Torque</P>
+    <P Name="FontSize">10</P>
+    <P Name="ZOrder">15</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">10#out:1</P>
+    <P Name="Points">[15, 0; 0, -15]</P>
+    <Branch>
+      <P Name="ZOrder">29</P>
+      <P Name="Dst">15#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">16</P>
+      <P Name="Labels">[2, 0]</P>
+      <P Name="Points">[0, -50]</P>
+      <P Name="Dst">14#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="Name">Voltage</P>
+    <P Name="FontSize">10</P>
+    <P Name="ZOrder">18</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">35#out:1</P>
+    <P Name="Points">[20, 0]</P>
+    <Branch>
+      <P Name="ZOrder">33</P>
+      <P Name="Labels">[0, 0]</P>
+      <P Name="Dst">18#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">19</P>
+      <P Name="Points">[0, -75]</P>
+      <P Name="Dst">12#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">21</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">3#out:1</P>
+    <P Name="Dst">27#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">22</P>
+    <P Name="Src">4#out:1</P>
+    <P Name="Points">[15, 0; 0, -20]</P>
+    <P Name="Dst">27#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">SV-PV</P>
+    <P Name="FontSize">10</P>
+    <P Name="ZOrder">23</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">27#out:1</P>
+    <P Name="Dst">36#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">limited voltage</P>
+    <P Name="FontSize">10</P>
+    <P Name="ZOrder">24</P>
+    <P Name="Labels">[2, 0]</P>
+    <P Name="Src">5#out:1</P>
+    <P Name="Points">[65, 0; 0, -60]</P>
+    <P Name="Dst">36#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">geared_torque</P>
+    <P Name="FontSize">10</P>
+    <P Name="ZOrder">25</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">6#out:1</P>
+    <P Name="Points">[70, 0; 0, -90]</P>
+    <P Name="Dst">36#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">26</P>
+    <P Name="Src">7#out:1</P>
+    <P Name="Dst">38#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">27</P>
+    <P Name="Src">2#out:1</P>
+    <P Name="Dst">39#in:1</P>
+  </Line>
+</System>
